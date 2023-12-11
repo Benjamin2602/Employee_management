@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 const Home = () => {
   const [name, setName] = useState("");
   const [department, setDepartment] = useState("");
@@ -121,7 +122,6 @@ const Home = () => {
               <th className="px-6 py-3">DOB</th>
               <th className="px-6 py-3">Address</th>
               <th className="px-6 py-3">Update</th>
-              <th className="px-6 py-3">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -144,6 +144,14 @@ const Home = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap overflow-ellipsis overflow-hidden">
                   {val.address}
+                </td>
+                <td>
+                  <Link
+                    to={`/update/${val.id}`}
+                    className="text-white  bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                  >
+                    Update
+                  </Link>
                 </td>
               </tr>
             ))}

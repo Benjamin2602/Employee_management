@@ -61,6 +61,30 @@ app.get("/employees", (req, res) => {
   });
 });
 
+//updating the table
+app.put("/update/", (req, res) => {
+  const id = req.body.id;
+  const name = req.body.name;
+  const department = req.body.department;
+  const salary = req.body.salary;
+  const designation = req.body.designation;
+  const dob = req.body.dob;
+  const address = req.body.address;
+
+  db.query(
+    "UPDATE employees SET name = ?, department = ?, salary = ?, designation = ?, dob = ?, address = ? WHERE id = ?",
+    [name, department, salary, designation, dob, address, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Error updating employee");
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
