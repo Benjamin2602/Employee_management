@@ -50,6 +50,17 @@ app.post("/create", (req, res) => {
   );
 });
 
+//fetching all the users from the database
+app.get("/employees", (req, res) => {
+  db.query("SELECT * FROM employees", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
