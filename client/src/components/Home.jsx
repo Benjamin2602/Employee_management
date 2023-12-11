@@ -8,6 +8,9 @@ const Home = () => {
   const [dob, setDob] = useState("");
   const [address, setAddress] = useState("");
 
+  //getting all the employee details
+  const [employeeList, setEmployeeList] = useState([]);
+
   const addEmployee = () => {
     console.log(name);
     if (
@@ -37,7 +40,7 @@ const Home = () => {
   const getEmployees = () => {
     Axios.get("http://localhost:3000/employees").then((response) => {
       //debugging
-      console.log(response);
+      setEmployeeList(response.data);
     });
   };
 
@@ -107,6 +110,46 @@ const Home = () => {
       >
         Show Employee detail
       </button>
+      <div className="relative overflow-x-auto mt-4">
+        <table className="w-full text-lg text-left border border-slate-700">
+          <thead className="text-lg uppercase bg-gray-200">
+            <tr>
+              <th className="px-6 py-3">Employee Name</th>
+              <th className="px-6 py-3">Department</th>
+              <th className="px-6 py-3">Salary</th>
+              <th className="px-6 py-3">Designation</th>
+              <th className="px-6 py-3">DOB</th>
+              <th className="px-6 py-3">Address</th>
+              <th className="px-6 py-3">Update</th>
+              <th className="px-6 py-3">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {employeeList.map((val, key) => (
+              <tr key={key} className="border border-slate-700">
+                <td className="px-6 py-4 whitespace-nowrap overflow-ellipsis overflow-hidden">
+                  {val.name}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap overflow-ellipsis overflow-hidden">
+                  {val.department}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap overflow-ellipsis overflow-hidden">
+                  {val.salary}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap overflow-ellipsis overflow-hidden">
+                  {val.designation}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap overflow-ellipsis overflow-hidden">
+                  {val.dob}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap overflow-ellipsis overflow-hidden">
+                  {val.address}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
