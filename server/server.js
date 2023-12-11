@@ -85,6 +85,19 @@ app.put("/update/", (req, res) => {
   );
 });
 
+//deleting the user
+app.delete("/delete/:id",(req,res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM employees WHERE id = ?", id , (err,result) =>{
+    if(err){
+      console.log(err);
+      res.send(result);
+    }else{
+      res.send(result);
+    }
+  })
+})
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });

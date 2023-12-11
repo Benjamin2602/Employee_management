@@ -108,7 +108,7 @@ const Update = () => {
         />
         <button
           type="submit"
-          className="flex flex-col justify-center m-3 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+          className="flex  justify-center m-3 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
           onClick={updateEmployee}
         >
           Update
