@@ -8,6 +8,6 @@ RUN npm install --silent
 
 COPY . ./
 
-EXPOSE 5173
+EXPOSE 5180
 
 CMD ["npm", "run", "dev"]
