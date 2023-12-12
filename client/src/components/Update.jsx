@@ -106,9 +106,10 @@ const Update = () => {
           className="h-9 w-1/3 border border-gray-400 rounded-md"
           onChange={(e) => setAddress(e.target.value)}
         />
-        <button
+        <br/>
+       <button
           type="submit"
-          className="flex  justify-center m-3 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+          className=" m-3 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
           onClick={updateEmployee}
         >
           Update

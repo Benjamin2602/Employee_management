@@ -46,18 +46,17 @@ const Home = () => {
   };
 
   //delete employee
-const deleteEmployee = (id) => {
-  Axios.delete(`http://localhost:3000/delete/${id}`)
-    .then(response => {
-      console.log(response.data);
-      getEmployees();
-      // Add any additional logic here if needed
-    })
-    .catch(error => {
-      console.error('Error deleting employee:', error);
-    });
-};
-
+  const deleteEmployee = (id) => {
+    Axios.delete(`http://localhost:3000/delete/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        getEmployees();
+        // Add any additional logic here if needed
+      })
+      .catch((error) => {
+        console.error("Error deleting employee:", error);
+      });
+  };
 
   return (
     <div className="flex flex-col justify-center">
@@ -170,7 +169,7 @@ const deleteEmployee = (id) => {
                 </td>
                 <td>
                   <button
-                    onClick = {() => deleteEmployee(val.id)}
+                    onClick={() => deleteEmployee(val.id)}
                     className="text-white  bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                   >
                     Delete
